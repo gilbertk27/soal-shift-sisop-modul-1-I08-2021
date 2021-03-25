@@ -1,0 +1,10 @@
+The list of customer names in Albuquerque in 2017 includes: 
+Benjamin Farhat
+Daniel Raglin
+David Wiener
+Fred Chung
+Michelle Lonsdale
+Shui Tom
+Susan Vittorini
+ 
+The type of customer segment with the least sales is Home Office with 1783 transactions.
