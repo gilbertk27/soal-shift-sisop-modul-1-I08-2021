@@ -8,3 +8,5 @@ Shui Tom
 Susan Vittorini
  
 The type of customer segment with the least sales is Home Office with 1783 transactions.
+ 
+The region which has the least total profit is Central with total profit 37674.1
