@@ -16,3 +16,4 @@ msg=$(echo "$error" | grep '(?<=ERROR\s)(.*)(?= )')
 c_msg=$(echo "$msg" | sort -s | uniq -c )
 echo -e "$msg\n"
 echo -e "$c_msg\n"
+
