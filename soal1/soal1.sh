@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #1a
+grep -oE "(INFO.*)|(ERROR.*)" syslog.log
+
 input='syslog.log'
 error=$(cat $input | grep 'ERROR')
 info=$(cat $input | grep 'INFO')

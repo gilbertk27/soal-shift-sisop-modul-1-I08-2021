@@ -1,5 +1,24 @@
 #!/bin/bash
 
+#2a
+awk '
+BEGIN	{
+    FS="\t"
+}
+
+{
+    pp=($21/($18-$21))*100
+    #cari max pp
+    if (pp>=max){
+        max=pp
+        id=$1
+    }
+   
+    #if max pp>1 cari row ID paling besar
+}
+ 
+END {printf("The last transaction with the largest transaction id is %d with a percentage of %.2f%%\n", id,max)}' 
+ 
 #2b
 list_name=$(awk '/Albuquerque/ && $3>="01-01-17" {print $8 " "$9}' Laporan-TokoShiSop.tsv | sort | uniq )
 
