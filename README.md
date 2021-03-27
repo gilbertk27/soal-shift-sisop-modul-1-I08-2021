@@ -5,6 +5,24 @@
 * Salma Izzatul Islam	05111942000028
 * Hashfi Putraza Hikmat	05111942000021
 
+## Soal 1:
+1 a) Collects information from application logs contained in the syslog.log file. The information required includes: log type (ERROR / INFO), log messages, and the username on each log line. Since Ryujin finds it difficult to check one line at a time manually, he uses regex to make his job easier. Help Ryujin create the regex.
+
+	#1a
+	grep -oE "(INFO.*)|(ERROR.*)" syslog.log
+	
+1 b) Then, Ryujin must display all error messages that appear along with the number of occurrences.
+	
+	#1b
+	grep -oE 'ERROR.*' syslog.log
+echo c_err=$(grep -cE 'ERROR' syslog.log) 
+
+1 c) Ryujin must also be able to display the number of occurrences of the ERROR and INFO logs for each user.
+	
+	#1c
+	c_user=$(grep -Po '(?<=\()(.*)(?=\))' syslog.log | sort -u)
+echo -e "\n$c_user\n"
+
 ## Soal 2:
 
 2 a) Steven wants to appreciate the performance of his employees so far by knowing Row ID and the largest profit percentage (if the largest profit percentage is more than 1, take the largest Row ID). To make your work easier, Clemong provides the definition of profit percentage, i.e.:
