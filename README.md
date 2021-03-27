@@ -35,6 +35,15 @@ File not found,3
 Failed to connect to DB,2
 	
 	#1d
+	count_err=$( cat syslog.log | grep 'ERROR' | grep -Po '(?<=ERROR\s)(.*)(?=\s)' | sort | uniq -c)
+	echo 'Error,Count' > error_message.csv
+	echo "$count_err" | while read row;
+	do
+	error=$(echo $row | cut -d ' ' -f 2-)
+	count=$(echo $row | cut -d ' ' -f 1)
+	print="$error,$count"
+	echo $print >> error_message.csv
+	done
 
 e). All information obtained in point c is written into the user_statistic.csv file with the header Username, INFO, ERROR sorted by username in ascending order.
 Example:
