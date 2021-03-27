@@ -5,7 +5,7 @@
 * Salma Izzatul Islam	05111942000028
 * Hashfi Putraza Hikmat	05111942000021
 
-##Soal 2:
+## Soal 2:
 
 2 a) Steven wants to appreciate the performance of his employees so far by knowing Row ID and the largest profit percentage (if the largest profit percentage is more than 1, take the largest Row ID). To make your work easier, Clemong provides the definition of profit percentage, i.e.:
 
