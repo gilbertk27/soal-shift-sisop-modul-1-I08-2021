@@ -4,7 +4,7 @@
 
  
 #2b
-list_name=$(awk '/Albuquerque/ && $3>="01-01-17" {print $8 " "$9}' Laporan-TokoShiSop.tsv | sort | uniq )
+list_name=$(awk '/Albuquerque/ && $3>="01-01-17" && $3<="31-12-17" {print $8 " "$9}' Laporan-TokoShiSop.tsv | sort | uniq )
 
 #echo ""
 
@@ -20,5 +20,6 @@ max_profit=$(cut -f 13,21 Laporan-TokoShiSop.tsv | sort -s | uniq -c | awk 'NR>=
 
 #echo -e "$max_profit\n"
 
-echo -e "The list of customer names in Albuquerque in 2017 includes: \n$list_name\n \n$least_sale\n \n$max_profit\n" > hasil.txt
+echo -e "The last transaction with the largest *Transaction ID* with a percentage of *Profit Percentage*%." > hasil.txt
+echo -e "The list of customer names in Albuquerque in 2017 includes: \n$list_name\n \n$least_sale\n \n$max_profit\n" >> hasil.txt
 
