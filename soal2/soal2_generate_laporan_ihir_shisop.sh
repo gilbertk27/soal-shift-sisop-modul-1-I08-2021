@@ -15,7 +15,7 @@ cut -f 8 Laporan-TokoShiSop.tsv | sort | uniq -c | head -n -1 | tail -n -1 | awk
 echo " "
 
 #2d
-cut -f 13,21 Laporan-TokoShiSop.tsv | sort -s | uniq -c | awk 'NR>=2 && p!=$2 {print "The region which has the least total profit is " p " with total profit " s;s=0} {s+=$3} {p=$2}' | head -n 1
+cut -f 13,21 Laporan-TokoShiSop.tsv | sort -s | uniq -c | awk 'NR>=2 && p!=$2 {print "The region which has the least total profit is " p " with total profit " s;s=0} {s+=$3*$1} {p=$2}' | head -n 1
 
 #}
 #'/home/xyncz/Documents/GitHub/soal-shift-sisop-modul-1-I08-2021/soal2/Laporan-TokoShiSop.tsv > hasil.txt
