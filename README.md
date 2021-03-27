@@ -1,11 +1,11 @@
-# Soal Shift Sisop Modul 1 2021
+# Problem Shift Sisop Module 1 2021
 
-#### Anggota Kelompok:
+#### Members name:
 * Gilbert Kurniawan Hariyanto	05111942000025
 * Salma Izzatul Islam	05111942000028
 * Hashfi Putraza Hikmat	05111942000021
 
-## Soal 1:
+## Question 1:
 1. Ryujin has just been accepted as an IT support at Bukapedia. He was given the task of making daily reports for the company's internal application, ticky. There are 2 reports that he has to make, namely the report on the list of most error message ratings made by Ticky and user usage reports on the Ticky application. In order to make this report, Ryujin had to do the following:
 
 a). Collects information from application logs contained in the syslog.log file. The information required includes: log type (ERROR / INFO), log messages, and the username on each log line. Since Ryujin finds it difficult to check one line at a time manually, he uses regex to make his job easier. Help Ryujin create the regex.
@@ -54,7 +54,7 @@ ryujin.1203,1,3
 	
 	#1e
 
-## Soal 2:
+## Question 2:
 2. Steven and Manis founded a startup called “TokoShiSop”, While you and Clemong are the first employees of TokoShiShop. After three years of work, Clemong was appointed to be TokoShiSop’s sales manager, while you became the head of the warehouse who supervised entry and exit of goods.
 
 	Every year, TokoShiSop holds a meeting that discusses how sales results and future strategies will be implemented. You’ve been very prepared for this year’s meeting. But suddenly, Steven, Manis, and Clemong ask you to look for some conclusions from the “Laporan-TokoShiSop.tsv” sales data.
@@ -87,7 +87,7 @@ e). To make it easy for Manis, Clemong, and Steven to read, (e) you are expected
 	#2e
 	echo -e "The list of customer names in Albuquerque in 2017 includes: \n$list_name\n \n$least_sale\n \n$max_profit\n" > hasil.txt
 
-## Soal 3:
+## Question 3:
 3. Kuuhaku is a person who really likes to collect digital photos, but Kuuhaku is also a lazy person so he doesn't want to bother looking for photos, besides that he is also shy, so he doesn't want anyone to see his collection, unfortunately, he has a friend named Steven who made being nosy his primary responsibility. Kuuhaku then had an idea, a way so that Steven won't be able to see his collection. To make his life easier, he is asking for your help. The idea is:
 
 a). Make a script to download 23 images from "https://loremflickr.com/320/240/kitten" and save the logs to the file "Foto.log". Since the downloaded images are random, it is possible that the same image is downloaded more than once, therefore you have to delete the same image (no need to download new images to replace them). Then save the images with the name "Kumpulan_XX" with consecutive numbers without missing any number (example: Koleksi_01, Koleksi_02, ...)
