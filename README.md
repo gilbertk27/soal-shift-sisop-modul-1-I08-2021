@@ -5,9 +5,13 @@
 * Salma Izzatul Islam	05111942000028
 * Hashfi Putraza Hikmat	05111942000021
 
+##Soal 2:
+
 2 a) Steven wants to appreciate the performance of his employees so far by knowing Row ID and the largest profit percentage (if the largest profit percentage is more than 1, take the largest Row ID). To make your work easier, Clemong provides the definition of profit percentage, i.e.:
 
 Profit Percentage = (Profit Cost Price) 100
+
+	#2a
 
 2 b) Cost Price is obtained from the reduction of Sales with Profit. (Quantity ignored). Clemong has a promotional plan in Albuquerque using the MLM method. Therefore, Clemong needs a list of customer names on the 2017 transaction in Albuquerque.
 
