@@ -15,13 +15,32 @@
 	
 	#1b
 	grep -oE 'ERROR.*' syslog.log
-echo c_err=$(grep -cE 'ERROR' syslog.log) 
+	echo c_err=$(grep -cE 'ERROR' syslog.log) 
 
 1 c) Ryujin must also be able to display the number of occurrences of the ERROR and INFO logs for each user.
 	
 	#1c
 	c_user=$(grep -Po '(?<=\()(.*)(?=\))' syslog.log | sort -u)
-echo -e "\n$c_user\n"
+	echo -e "\n$c_user\n"
+
+1 d) After all the necessary information has been prepared, now is the time for Ryujin to write all the information into a report in the csv file format.
+All information obtained in point b is written into the error_message.csv file with the Error, Count header, which is then followed by a list of error messages and the number of occurrences is ordered based on the number of occurrence of error messages from the most.
+Example:
+Error,Count
+Permission denied,5
+File not found,3
+Failed to connect to DB,2
+	
+	#1d
+
+1 e) All information obtained in point c is written into the user_statistic.csv file with the header Username, INFO, ERROR sorted by username in ascending order.
+Example:
+Username,INFO,ERROR
+kaori02,6,0
+kousei01,2,2
+ryujin.1203,1,3
+	
+	#1e
 
 ## Soal 2:
 
@@ -52,3 +71,25 @@ Profit Percentage = (Profit Cost Price) 100
 	
 	#2e
 	echo -e "The list of customer names in Albuquerque in 2017 includes: \n$list_name\n \n$least_sale\n \n$max_profit\n" > hasil.txt
+
+## Soal 3:
+
+3 a) Make a script to download 23 images from "https://loremflickr.com/320/240/kitten" and save the logs to the file "Foto.log". Since the downloaded images are random, it is possible that the same image is downloaded more than once, therefore you have to delete the same image (no need to download new images to replace them). Then save the images with the name "Kumpulan_XX" with consecutive numbers without missing any number (example: Koleksi_01, Koleksi_02, ...)
+	
+	#3a
+	
+3 b) Because Kuuhaku is too lazy to run the script manually, he also asks you to run the script once a day at 8 o'clock in the evening for some specific dates every month, namely starting the 1st every seven days (1,8, ...), as well as from the 2nd once every four days (2,6, ...). To tidy it up, the downloaded images and logs are moved to a folder named the download date with the format "DD-MM-YYYY" (example: "13-03-2023").
+	
+	#3b
+
+3 c) To prevent Kuuhaku getting bored with pictures of kittens, he also asked you to download rabbit images from "https://loremflickr.com/320/240/bunny". Kuuhaku asks you to download pictures of cats and rabbits alternately (the first one is free. example: 30th cat > 31st rabbit > 1st cat > ...). To distinguish between folders containing cat pictures and rabbit pictures, the folder names are prefixed with "Kucing_" or "Kelinci_" (example: "Kucing_13-03-2023").
+
+	#3c
+	
+3 d) To secure his Photo collection from Steven, Kuuhaku asked you to create a script that will move the entire folder to zip which is named "Koleksi.zip" and lock the zip with a password in the form of the current date with the format "MMDDYYYY" (example: "03032003").
+
+	#3d
+	
+3 e) Because kuuhaku only met Steven during college, which is every day except Saturday and Sunday, from 7 am to 6 pm, he asks you to zip the collection during college, apart from the time mentioned, he wants the collection unzipped. and no other zip files exist.
+
+	#3e
