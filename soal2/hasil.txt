@@ -1,0 +1,14 @@
+The last transaction with the largest *Transaction ID* with a percentage of *Profit Percentage*%.
+The list of customer names in Albuquerque in 2017 includes: 
+Benjamin Farhat
+Daniel Raglin
+David Wiener
+Fred Chung
+Michelle Lonsdale
+Shui Tom
+Susan Vittorini
+ 
+The type of customer segment with the least sales is Home Office with 1783 transactions.
+ 
+The region which has the least total profit is Central with total profit 39706.4
+
