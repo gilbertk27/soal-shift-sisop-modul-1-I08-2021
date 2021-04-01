@@ -1,1 +1,2 @@
-1 20 1/7,2/4 * *
+0 20 1-31/7 * * /home/Desktop/soal3b.sh
+0 20 2-31/4 * * /home/Desktop/soal3b.sh
