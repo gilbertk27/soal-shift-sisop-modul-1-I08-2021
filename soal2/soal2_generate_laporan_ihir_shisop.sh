@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #2a
+awk -F '\t' 'NR>1 {price=$18-$21; percent=($21/price)*100; print $1, percent}' Laporan-TokoShiSop.tsv > filter.txt
 
- 
 #2b
-list_name=$(awk '/Albuquerque/ && $3>="01-01-17" && $3<="31-12-17" {print $8 " "$9}' Laporan-TokoShiSop.tsv | sort | uniq )
+list_name=$(awk 'match($3, "-17") && /Albuquerque/ {print $8 " "$9}' Laporan-TokoShiSop.tsv | sort | uniq )
+
+#echo -e "$list_name\n"
 
 #echo ""
-
-#echo -e "The list of customer names in Albuquerque in 2017 includes: \n$list_name\n"
 
 #2c
 least_sale=$(cut -f 8 Laporan-TokoShiSop.tsv | sort | uniq -c | head -n -1 | tail -n -1 | awk '{print "The type of customer segment with the least sales is " $2 " " $3" with "$1" transactions."}')
@@ -21,6 +21,7 @@ max_profit=$(cut -f 13,21 Laporan-TokoShiSop.tsv | sort -s | uniq -c | awk 'NR>=
 #echo -e "$max_profit\n"
 
 #2e
-echo -e "The last transaction with the largest *Transaction ID* with a percentage of *Profit Percentage*%." > hasil.txt
-echo -e "The list of customer names in Albuquerque in 2017 includes: \n$list_name\n \n$least_sale\n \n$max_profit\n" >> hasil.txt
+awk 'BEGIN {max=0;num=0}{if($2>max) max=$2}{if($2==max) num=$1} END {print "The last transaction with the largest Transaction ID is ",num," with a percentage of ",max,"%."}' filter.txt > hasil.txt
+ 
+echo -e "\nThe list of customer names in Albuquerque in 2017 includes: \n$list_name\n \n$least_sale\n \n$max_profit\n" >> hasil.txt
 
