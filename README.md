@@ -72,7 +72,7 @@ Failed to connect to DB,2
 	print="$error,$count"
 	echo $print >> error_message.csv
 	done
-##### The code above shows the ERROR log type information and is written in the form error_message.csv file
+##### (d) The code above shows the ERROR log type information and is written in the form error_message.csv file
 	• The cat command is used to read the syslog.log file
 	• Grep command to search for given pattern files
 	• -P translates patterns as Perl-compatible regular expressions (PCREs)
@@ -102,6 +102,15 @@ ryujin.1203,1,3
 	info_c=$(cat syslog.log | grep 'INFO' | grep -c $i)
 	echo "$i,$info_c,$err_c" >> user_statistic.csv
 	done
+
+##### (e) The code above shows creating a file called user_statistic.csv which contains the username and the number of occurrences of the ERROR and INFO logs.
+	• echo 'Username, INFO, ERROR'> user_statistic.csv to enter the requested data into a file named user_statistic.csv
+	• for i in $ c_user is a for loop with $ c_user as i
+	• The cat command is used to read the syslog.log file
+	• grep ERROR command to search for error files
+	• grep INFO command to find file info
+	• -c counts the number of lines that match the pattern
+	• Echo "$ i, $ info_c, $ err_c" >> user_statistic.csv to display each variable content into the user_statistic.csv file
 	
 ## Question 2:
 
