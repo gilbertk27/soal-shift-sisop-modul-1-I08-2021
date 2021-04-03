@@ -7,15 +7,15 @@
 
 ## Question 1:
 
-## 1. Ryujin has just been accepted as an IT support at Bukapedia. He was given the task of making daily reports for the company's internal application, ticky. There are 2 reports that he has to make, namely the report on the list of most error message ratings made by Ticky and user usage reports on the Ticky application. In order to make this report, Ryujin had to do the following:
+### 1. Ryujin has just been accepted as an IT support at Bukapedia. He was given the task of making daily reports for the company's internal application, ticky. There are 2 reports that he has to make, namely the report on the list of most error message ratings made by Ticky and user usage reports on the Ticky application. In order to make this report, Ryujin had to do the following:
 
-### a). Collects information from application logs contained in the syslog.log file. The information required includes: log type (ERROR / INFO), log messages, and the username on each log line. Since Ryujin finds it difficult to check one line at a time manually, he uses regex to make his job easier. Help Ryujin create the regex.
+#### a). Collects information from application logs contained in the syslog.log file. The information required includes: log type (ERROR / INFO), log messages, and the username on each log line. Since Ryujin finds it difficult to check one line at a time manually, he uses regex to make his job easier. Help Ryujin create the regex.
 
 	#(a)
 	p_error=$(cat syslog.log | grep -Po '(?<=: )(.*)(?<=\))' | sort -u)
 	echo -e "$p_error \n"
 	
-#### (a) The code above explains about grouping log types and displaying them according to log type (ERROR / INFO), log messages, and username.
+##### (a) The code above explains about grouping log types and displaying them according to log type (ERROR / INFO), log messages, and username.
 	• The cat command is used to read the syslog.log file
 	• Grep command to search for predefined pattern files
 	• -P translates patterns as Perl-compatible regular expressions (PCREs)
@@ -25,13 +25,13 @@
 	• Sort -u to sort the output
 	• Echo to display each variable content
 	
-### b). Then, Ryujin must display all error messages that appear along with the number of occurrences.
+#### b). Then, Ryujin must display all error messages that appear along with the number of occurrences.
 	
 	#(b)
 	grep -oE 'ERROR.*' syslog.log
 	echo c_err=$(grep -cE 'ERROR' syslog.log) 
 	
-#### (b) Code diatas ini menunjukan bagaimana kita menampilkan data dengan jenis log ERROR dan menjumlahnya 
+##### (b) Code diatas ini menunjukan bagaimana kita menampilkan data dengan jenis log ERROR dan menjumlahnya 
 	o grep -oE 'ERROR. *' syslog.log command which will run first, and will display the message ERROR
 	• Grep command to search for given pattern files
 	• -o option to display only the part that matches the pattern
@@ -39,13 +39,13 @@
 	• 'ERROR. *' The asterisk * in ERROR. * Is a quantifier for matching patterns starting from zero onwards
 	• -c counts the number of lines that match the pattern
 
-### (c) Ryujin must also be able to display the number of occurrences of the ERROR and INFO logs for each user.
+#### (c) Ryujin must also be able to display the number of occurrences of the ERROR and INFO logs for each user.
 	
 	#(c)
 	c_user=$(grep -Po '(?<=\()(.*)(?=\))' syslog.log | sort -u)
 	echo -e "\n$c_user\n"
 
-#### (c) The code above shows how we display data in the form of a username and the number of occurrences of the ERROR and INFO logs
+##### (c) The code above shows how we display data in the form of a username and the number of occurrences of the ERROR and INFO logs
 	• Grep command to search for predefined pattern files
 	• -P translates patterns as Perl-compatible regular expressions (PCREs)
 	• -o option to display only the part that matches the pattern
