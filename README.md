@@ -11,19 +11,19 @@
 
 #### a). Collects information from application logs contained in the syslog.log file. The information required includes: log type (ERROR / INFO), log messages, and the username on each log line. Since Ryujin finds it difficult to check one line at a time manually, he uses regex to make his job easier. Help Ryujin create the regex.
 
-	#(a)
-	p_error=$(cat syslog.log | grep -Po '(?<=: )(.*)(?<=\))' | sort -u)
-	echo -e "$p_error \n"
-	
-##### (a) The code above explains about grouping log types and displaying them according to log type (ERROR / INFO), log messages, and username.
-	• The cat command is used to read the syslog.log file
-	• Grep command to search for predefined pattern files
-	• -P translates patterns as Perl-compatible regular expressions (PCREs)
-	• -o option to display only the part that matches the pattern
-	• (? <=) (. *) (? <= \)) Using lookbehind. ?<=\() to match the pattern after the opening brackets ( and .* retrieves all strings that follow. 
-	(? = \)) to constrain the fetched strings, i.e. up to before the closing brackets)
-	• Sort -u to sort the output
-	• Echo to display each variable content
+		#(a)
+		p_error=$(cat syslog.log | grep -Po '(?<=: )(.*)(?<=\))' | sort -u)
+		echo -e "$p_error \n"
+
+	##### (a) The code above explains about grouping log types and displaying them according to log type (ERROR / INFO), log messages, and username.
+		• The cat command is used to read the syslog.log file
+		• Grep command to search for predefined pattern files
+		• -P translates patterns as Perl-compatible regular expressions (PCREs)
+		• -o option to display only the part that matches the pattern
+		• (? <=) (. *) (? <= \)) Using lookbehind. ?<=\() to match the pattern after the opening brackets ( and .* retrieves all strings that follow. 
+		(? = \)) to constrain the fetched strings, i.e. up to before the closing brackets)
+		• Sort -u to sort the output
+		• Echo to display each variable content
 	
 #### b). Then, Ryujin must display all error messages that appear along with the number of occurrences.
 	
@@ -42,7 +42,7 @@
 #### c). Ryujin must also be able to display the number of occurrences of the ERROR and INFO logs for each user.
 	
 	#(c)
-	c_user=$(grep -Po '(?<=\()(.*)(?=\))' syslog.log | sort -u)
+	c_user=$(grep -Po '(?<=\()(.*)(?=\))' syslog.log | sort | uniq -c)
 	echo -e "\n$c_user\n"
 
 ##### (c) The code above shows how we display data in the form of a username and the number of occurrences of the ERROR and INFO logs
