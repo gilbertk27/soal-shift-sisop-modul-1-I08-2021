@@ -31,7 +31,7 @@
 	grep -oE 'ERROR.*' syslog.log
 	echo c_err=$(grep -cE 'ERROR' syslog.log) 
 	
-##### (b) Code diatas ini menunjukan bagaimana kita menampilkan data dengan jenis log ERROR dan menjumlahnya 
+##### (b) The code above shows how we display data with the ERROR log type and add it up
 	o grep -oE 'ERROR. *' syslog.log command which will run first, and will display the message ERROR
 	• Grep command to search for given pattern files
 	• -o option to display only the part that matches the pattern
