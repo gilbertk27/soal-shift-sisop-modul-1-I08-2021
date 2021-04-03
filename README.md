@@ -33,11 +33,11 @@
 	
 ##### (b) The code above shows how we display data with the ERROR log type and add it up
 	o grep -oE 'ERROR. *' syslog.log command which will run first, and will display the message ERROR
-	• Grep command to search for given pattern files
-	• -o option to display only the part that matches the pattern
-	• -E translate patterns as extended regular expressions (EREs)
-	• 'ERROR. *' The asterisk * in ERROR. * Is a quantifier for matching patterns starting from zero onwards
-	• -c counts the number of lines that match the pattern
+		• Grep command to search for given pattern files
+		• -o option to display only the part that matches the pattern
+		• -E translate patterns as extended regular expressions (EREs)
+		• 'ERROR. *' The asterisk * in ERROR. * Is a quantifier for matching patterns starting from zero onwards
+		• -c counts the number of lines that match the pattern
 
 #### (c) Ryujin must also be able to display the number of occurrences of the ERROR and INFO logs for each user.
 	
