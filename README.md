@@ -72,6 +72,20 @@ Failed to connect to DB,2
 	print="$error,$count"
 	echo $print >> error_message.csv
 	done
+##### The code above shows the ERROR log type information and is written in the form error_message.csv file
+	• The cat command is used to read the syslog.log file
+	• Grep command to search for given pattern files
+	• -P translates patterns as Perl-compatible regular expressions (PCREs)
+	• -o option to display only the part that matches the pattern
+	• (? <= ERROR \ s) (. *) (? = \ S)
+	• Sort to sort the output
+	• Uniq -c to filter usernames so there are no duplicates
+	• echo 'Error, Count'> error_message.csv to enter the requested data into a file named error_message.csv
+	• while read row reads $ count_err as row
+	• error = $ (echo $ row | cut -d '' -f 2-) for
+	• Count = $ (echo $ row | cut -d '' -f 1) for
+	• print to display each variable content
+	• echo $ print >> error_message.csv to display each variable content into the error_message.csv file
 
 #### e). All information obtained in point c is written into the user_statistic.csv file with the header Username, INFO, ERROR sorted by username in ascending order.
 Example:
