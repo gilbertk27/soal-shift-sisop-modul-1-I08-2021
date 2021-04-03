@@ -23,6 +23,7 @@ print="$error,$count"
 echo $print >> error_message.csv
 done
 
+
 #1e
 echo 'Username,INFO,ERROR' > user_statistic.csv
 for i in $c_user
@@ -31,3 +32,24 @@ err_c=$(cat syslog.log | grep 'ERROR' | grep -c $i)
 info_c=$(cat syslog.log | grep 'INFO' | grep -c $i)
 echo "$i,$info_c,$err_c" >> user_statistic.csv
 done
+
+
+
+#below still error experimental code for 1e
+
+#echo 'Username,INFO,ERROR' > user_statistic_csv 
+#c_users=$(grep -Po '(?<=\()(.*)(?=\))' syslog.log | sort -u)
+
+#err_c=$(cat syslog.log | grep 'ERROR' | grep -Po '(?<=\()(.*)(?=\)\K)' )
+#echo $err_c
+#echo $err_c > err_c.txt 
+#err_count=$(cat err_c.txt | uniq -c)
+#echo $err_count 
+#info_c=$(cat syslog.log | grep 'INFO' | grep -Po '(?<=\()(.*)(?=\))' | uniq -c )
+#echo "$i,$info_c,$err_c" >> user_statistic_csv
+
+
+
+
+
+
