@@ -9,7 +9,7 @@ grep -oE 'ERROR.*' syslog.log
 echo c_err=$(grep -cE 'ERROR' syslog.log) 
 
 #1c
-c_user=$(grep -Po '(?<=\()(.*)(?=\))' syslog.log | sort -u)
+c_user=$(grep -Po '(?<=\()(.*)(?=\))' syslog.log | sort | uniq -c)
 echo -e "\n$c_user\n"
 
 #1d
