@@ -39,7 +39,7 @@
 		• 'ERROR. *' The asterisk * in ERROR. * Is a quantifier for matching patterns starting from zero onwards
 		• -c counts the number of lines that match the pattern
 
-#### (c) Ryujin must also be able to display the number of occurrences of the ERROR and INFO logs for each user.
+#### c). Ryujin must also be able to display the number of occurrences of the ERROR and INFO logs for each user.
 	
 	#(c)
 	c_user=$(grep -Po '(?<=\()(.*)(?=\))' syslog.log | sort -u)
