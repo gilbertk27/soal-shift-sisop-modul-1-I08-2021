@@ -13,6 +13,15 @@ a). Collects information from application logs contained in the syslog.log file.
 	#1a
 	grep -oE "(INFO.*)|(ERROR.*)" syslog.log
 	
+## (a) The code above explains about grouping log types and displaying them according to log type (ERROR / INFO), log messages, and username.
+	• The cat command is used to read the syslog.log file
+	• Grep command to search for predefined pattern files
+	• -P translates patterns as Perl-compatible regular expressions (PCREs)
+	• -o option to display only the part that matches the pattern
+	• (? <=) (. *) (? <= \)) Using lookbehind. ??
+	• Sort -u to sort the output
+	• Echo to display each variable content
+	
 b). Then, Ryujin must display all error messages that appear along with the number of occurrences.
 	
 	#1b
