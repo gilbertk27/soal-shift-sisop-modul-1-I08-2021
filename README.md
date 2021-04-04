@@ -183,7 +183,10 @@ Profit Percentage = (Profit Cost Price) 100
 #### d). To secure his Photo collection from Steven, Kuuhaku asked you to create a script that will move the entire folder to zip which is named "Koleksi.zip" and lock the zip with a password in the form of the current date with the format "MMDDYYYY" (example: "03032003").
 
 	#3d
+	passw=`date +'%m%d%Y'`
+	zip -P $passw '/home/xyncz/Downloads/Koleksi.zip' . -x *.sh* *.log* *.tab*
 	
 #### e). Because kuuhaku only met Steven during college, which is every day except Saturday and Sunday, from 7 am to 6 pm, he asks you to zip the collection during college, apart from the time mentioned, he wants the collection unzipped. and no other zip files exist.
 
 	#3e
+	
