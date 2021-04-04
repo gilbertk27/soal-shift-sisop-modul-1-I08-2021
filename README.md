@@ -15,7 +15,7 @@
 		p_error=$(cat syslog.log | grep -Po '(?<=: )(.*)(?<=\))' | sort -u)
 		echo -e "$p_error \n"
 #### Result Image:
-	![](images/soal1/soal1a.png)
+	![](/images/soal1/soal1a.png)
 
 ##### (a) The code above explains about grouping log types and displaying them according to log type (ERROR / INFO), log messages, and username.
 		• The cat command is used to read the syslog.log file
