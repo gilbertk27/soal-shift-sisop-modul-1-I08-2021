@@ -97,9 +97,9 @@ Failed to connect to DB,2
 	• Sort to sort the output
 	• Uniq -c to filter usernames so there are no duplicates
 	• echo 'Error, Count'> error_message.csv to enter the requested data into a file named error_message.csv
-	• while read row reads $ count_err as row
-	• error = $ (echo $ row | cut -d '' -f 2-) 
-	• Count = $ (echo $ row | cut -d '' -f 1)
+	• while read row reads $ count_err as row -> looping function to read each row
+	• error = $ (echo $ row | cut -d '' -f 2-) -> cut the data with delimiter whitespace and print only for second column onward
+	• Count = $ (echo $ row | cut -d '' -f 1) -> cut the data with delimiter whitespace and print only for first column
 	• print to display each variable content
 	• echo $ print >> error_message.csv to display each variable content into the error_message.csv file
 ##### Problem encountered
