@@ -140,30 +140,52 @@ ryujin.1203,1,3
 
 ### 2. Steven and Manis founded a startup called “TokoShiSop”, While you and Clemong are the first employees of TokoShiShop. After three years of work, Clemong was appointed to be TokoShiSop’s sales manager, while you became the head of the warehouse who supervised entry and exit of goods. Every year, TokoShiSop holds a meeting that discusses how sales results and future strategies will be implemented. You’ve been very prepared for this year’s meeting. But suddenly, Steven, Manis, and Clemong ask you to look for some conclusions from the “Laporan-TokoShiSop.tsv” sales data.
 
-#### a). Steven wants to appreciate the performance of his employees so far by knowing Row ID and the largest profit percentage (if the largest profit percentage is more than 1, take the largest Row ID). To make your work easier, Clemong provides the definition of profit percentage, i.e.:( Profit Percentage = (Profit Cost Price)*100 )
+#### a). Steven wants to appreciate the performance of his employees so far by knowing Row ID and the largest profit percentage (if the largest profit percentage is more than 1, take the largest Row ID). To make your work easier, Clemong provides the definition of profit percentage, i.e.:( Profit Percentage = (Profit-Cost Price)*100 )
 
 	#2a
 	awk -F '\t' 'NR>1 {price=$18-$21; percent=($21/price)*100; print $1, percent}' Laporan-TokoShiSop.tsv > filter.txt
 
 ##### (a) The code above looking for the conclusion of the sales data-TokoShop.tsv Reports.
 	• -F "\ t" to change the separator field to tabs per column
-	
+	• price variable represent Profit-Cost Price
+	• percent variable represent formula for the Profit Percentage in the end
+	• We then print the result for each row on the table 
+	• For easier navigation, we saved the result on filter.txt	
 
 #### b). Cost Price is obtained from the reduction of Sales with Profit. (Quantity ignored). Clemong has a promotional plan in Albuquerque using the MLM method. Therefore, Clemong needs a list of customer names on the 2017 transaction in Albuquerque.
 
 	#(b)
 	list_name=$(awk 'match($3, "-17") && /Albuquerque/ {print $8 " "$9}' Laporan-TokoShiSop.tsv | sort | uniq )
 
+##### (b) The code above will filter the sales data on TokoShop.tsv Reports.	
+	
+	• The first thing to do is we use awk to filter the year on column 3 & pick only the data which is on Albuquerque
+	• We then print the column 8 & 9 which represent the name of the customer
+	• We use sort to sort the result & uniq to filter the duplicate data
+	
+
 #### c). TokoShiSop focuses on three customer segments, among others: Home Offices, Customers, and Corporates. Clemong wants to increase sales in the customer segment that has the least sales. Therefore, Clemong needs a customer segment and the number of transactions with the least amount of transactions.
 
 	#(c)
 	least_sale=$(cut -f 8 Laporan-TokoShiSop.tsv | sort | uniq -c | head -n -1 | tail -n -1 | awk '{print "The type of customer segment with the least sales is " $2 " " $3" with "$1" transactions."}')
+
+##### (c) The code above will filter the sales data on TokoShop.tsv Reports.	
+	
+	• The first thing we do is we cut the 8 column in the report and find & count each of the uniq value using unic -c
+	• We then proceed take the lowest data using head -n -1 & tail -n -1
+	• The awk function just to print according to the question
 
 
 #### d). TokoShiSop divides the sales region into four parts: Central, East, South, and West. Manis wants to find the region that has the least total profit and the total profit of that region.
 
 	#(d)
 	max_profit=$(cut -f 13,21 Laporan-TokoShiSop.tsv | sort -s | uniq -c | awk 'NR>=2 && p!=$2 {print "The region which has the least total profit is " p " with total profit " s;s=0} {s+=$3*$1} {p=$2}' | head -n 1)
+	
+##### (d) The code above will filter the sales data on TokoShop.tsv Reports.	
+	
+	• The first thing to do is we use cut the column 13 which is the region of the sales & coulmn 21 which is the profit column & also sort & count it 
+	• The awk fucntion used to calculate the profit on each region
+	• The head function then take the region with the highest profit
 
 #### e). To make it easy for Manis, Clemong, and Steven to read, (e) you are expected to be able to create a script that will produce a file “Hasil.txt” 
 	
@@ -174,9 +196,18 @@ ryujin.1203,1,3
  	#this print
 	echo -e "\nThe list of customer names in Albuquerque in 2017 includes: \n$list_name\n \n$least_sale\n \n$max_profit\n" >> hasil.txt
 	
+##### (e) The code above will print the rest of the variable that has stored the data for each of the sub question.	
+	
+	• The first line that use awk represent the 2a question that calculate the largest transaction ID
+	• The second line and so on represent the number 2b - 2d
+	
 #### Result Image (each enter represent the next sub number answer):
 ![](/images/soal2/soal2.png)	
 	
+##### Problem encountered when doing number 2:
+1.initially didn't think of using variable to store the result 
+2.having hard time to calculate the 2a because of there's 0 multiplication that resulting in error
+3.The lack of knowledge of various function that then take time to learn during the progress
 
 ## Question 3:
 
