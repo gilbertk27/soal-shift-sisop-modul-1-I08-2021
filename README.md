@@ -14,8 +14,6 @@
 		#(a)
 		p_error=$(cat syslog.log | grep -Po '(?<=: )(.*)(?<=\))' | sort -u)
 		echo -e "$p_error \n"
-#### Result Image:
-![](/images/soal1/soal1a.png)
 
 ##### (a) The code above explains about grouping log types and displaying them according to log type (ERROR / INFO), log messages, and username.
 		• The cat command is used to read the syslog.log file
@@ -26,6 +24,10 @@
 		(? = \)) to constrain the fetched strings, i.e. up to before the closing brackets)
 		• Sort -u to sort the output
 		• Echo to display each variable content
+	
+#### Result Image:
+![](/images/soal1/soal1a.png)
+
 	
 #### b). Then, Ryujin must display all error messages that appear along with the number of occurrences.
 	
@@ -40,6 +42,9 @@
 		• -E translate patterns as extended regular expressions (EREs)
 		• 'ERROR. *' The asterisk * in ERROR. * Is a quantifier for matching patterns starting from zero onwards
 		• -c counts the number of lines that match the pattern
+
+#### Result Image:
+![](/images/soal1/soal1b.png)
 
 #### c). Ryujin must also be able to display the number of occurrences of the ERROR and INFO logs for each user.
 	
@@ -89,6 +94,9 @@ Failed to connect to DB,2
 	• print to display each variable content
 	• echo $ print >> error_message.csv to display each variable content into the error_message.csv file
 
+#### Result Image:
+![](/images/soal1/soal1d.png)
+
 #### e). All information obtained in point c is written into the user_statistic.csv file with the header Username, INFO, ERROR sorted by username in ascending order.
 Example:
 Username,INFO,ERROR
@@ -113,6 +121,9 @@ ryujin.1203,1,3
 	• grep INFO command to find file info
 	• -c counts the number of lines that match the pattern
 	• Echo "$ i, $ info_c, $ err_c" >> user_statistic.csv to display each variable content into the user_statistic.csv file
+	
+#### Result Image (For 1c & 1e):
+![](/images/soal1/soal1e.png)	
 	
 ## Question 2:
 
@@ -148,6 +159,10 @@ Profit Percentage = (Profit Cost Price) 100
 	#(e)
 	echo -e "The last transaction with the largest *Transaction ID* with a percentage of *Profit Percentage*%." > hasil.txt
 	echo -e "The list of customer names in Albuquerque in 2017 includes: \n$list_name\n \n$least_sale\n \n$max_profit\n" >> hasil.txt
+	
+#### Result Image (each enter represent the next sub number answer):
+![](/images/soal2/soal2.png)	
+	
 
 ## Question 3:
 
