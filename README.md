@@ -134,14 +134,9 @@ ryujin.1203,1,3
 	#2a
 	awk -F '\t' 'NR>1 {price=$18-$21; percent=($21/price)*100; print $1, percent}' Laporan-TokoShiSop.tsv > filter.txt
 
-##### (a) The code above shows creating a file called user_statistic.csv which contains the username and the number of occurrences of the ERROR and INFO logs.
-	• echo 'Username, INFO, ERROR'> user_statistic.csv to enter the requested data into a file named user_statistic.csv
-	• for i in $ c_user is a for loop with $ c_user as i
-	• The cat command is used to read the syslog.log file
-	• grep ERROR command to search for error files
-	• grep INFO command to find file info
-	• -c counts the number of lines that match the pattern
-	• Echo "$ i, $ info_c, $ err_c" >> user_statistic.csv to display each variable content into the user_statistic.csv file
+##### (a) The code above looking for the conclusion of the sales data-TokoShop.tsv Reports.
+	• -F "\ t" to change the separator field to tabs per column
+	
 
 #### b). Cost Price is obtained from the reduction of Sales with Profit. (Quantity ignored). Clemong has a promotional plan in Albuquerque using the MLM method. Therefore, Clemong needs a list of customer names on the 2017 transaction in Albuquerque.
 
