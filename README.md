@@ -44,7 +44,7 @@
 		• -c counts the number of lines that match the pattern
 	o echo c_err=$(grep -cE 'ERROR' syslog.log) command will display the sum of message ERROR
 ##### Problem encountered
-1. the output of sum is 0
+• the output of sum is 0
 #### Result Image:
 ![](/images/soal1/soal1b.png)
 
@@ -64,7 +64,7 @@
 	• Uniq -c to filter usernames so there are no duplicates
 	• Echo to display each variable content
 ##### Problem encountered
-1. displays the number of occurrences for each user
+• displays the number of occurrences for each user
 
 After all the necessary information has been prepared, now is the time for Ryujin to write all the information into a report in the csv file format.
 
@@ -103,7 +103,7 @@ Failed to connect to DB,2
 	• print to display each variable content
 	• echo $ print >> error_message.csv to display each variable content into the error_message.csv file
 ##### Problem encountered
-1. there are double data occurs in the file 
+• there are double data occurs in the file 
 #### Result Image:
 ![](/images/soal1/soal1d.png)
 
@@ -132,7 +132,7 @@ ryujin.1203,1,3
 	• -c counts the number of lines that match the pattern
 	• Echo "$ i, $ info_c, $ err_c" >> user_statistic.csv to display each variable content into the user_statistic.csv file
 ##### Problem encountered
-1. the sum of the type log (INFO\ERROR)
+• the sum of the type log (INFO\ERROR)
 #### Result Image (For 1c & 1e):
 ![](/images/soal1/soal1e.png)	
 	
