@@ -127,21 +127,26 @@ ryujin.1203,1,3
 	
 ## Question 2:
 
-### 2. Steven and Manis founded a startup called “TokoShiSop”, While you and Clemong are the first employees of TokoShiShop. After three years of work, Clemong was appointed to be TokoShiSop’s sales manager, while you became the head of the warehouse who supervised entry and exit of goods.
+### 2. Steven and Manis founded a startup called “TokoShiSop”, While you and Clemong are the first employees of TokoShiShop. After three years of work, Clemong was appointed to be TokoShiSop’s sales manager, while you became the head of the warehouse who supervised entry and exit of goods. Every year, TokoShiSop holds a meeting that discusses how sales results and future strategies will be implemented. You’ve been very prepared for this year’s meeting. But suddenly, Steven, Manis, and Clemong ask you to look for some conclusions from the “Laporan-TokoShiSop.tsv” sales data.
 
-	Every year, TokoShiSop holds a meeting that discusses how sales results and future strategies will be implemented. You’ve been very prepared for this year’s meeting. But suddenly, Steven, Manis, and Clemong ask you to look for some conclusions from the “Laporan-TokoShiSop.tsv” sales data.
+#### a). Steven wants to appreciate the performance of his employees so far by knowing Row ID and the largest profit percentage (if the largest profit percentage is more than 1, take the largest Row ID). To make your work easier, Clemong provides the definition of profit percentage, i.e.:( Profit Percentage = (Profit Cost Price)*100 )
 
-#### a). Steven wants to appreciate the performance of his employees so far by knowing Row ID and the largest profit percentage (if the largest profit percentage is more than 1, take the largest Row ID). To make your work easier, Clemong provides the definition of profit percentage, i.e.:
+	#2a
+	awk -F '\t' 'NR>1 {price=$18-$21; percent=($21/price)*100; print $1, percent}' Laporan-TokoShiSop.tsv > filter.txt
 
-Profit Percentage = (Profit Cost Price) 100
-
-	#(a)
+##### (a) The code above shows creating a file called user_statistic.csv which contains the username and the number of occurrences of the ERROR and INFO logs.
+	• echo 'Username, INFO, ERROR'> user_statistic.csv to enter the requested data into a file named user_statistic.csv
+	• for i in $ c_user is a for loop with $ c_user as i
+	• The cat command is used to read the syslog.log file
+	• grep ERROR command to search for error files
+	• grep INFO command to find file info
+	• -c counts the number of lines that match the pattern
+	• Echo "$ i, $ info_c, $ err_c" >> user_statistic.csv to display each variable content into the user_statistic.csv file
 
 #### b). Cost Price is obtained from the reduction of Sales with Profit. (Quantity ignored). Clemong has a promotional plan in Albuquerque using the MLM method. Therefore, Clemong needs a list of customer names on the 2017 transaction in Albuquerque.
 
 	#(b)
-	list_name=$(awk '/Albuquerque/ && $3>="01-01-17" {print $8 " "$9}' Laporan- TokoShiSop.tsv | sort | uniq )
-
+	list_name=$(awk 'match($3, "-17") && /Albuquerque/ {print $8 " "$9}' Laporan-TokoShiSop.tsv | sort | uniq )
 
 #### c). TokoShiSop focuses on three customer segments, among others: Home Offices, Customers, and Corporates. Clemong wants to increase sales in the customer segment that has the least sales. Therefore, Clemong needs a customer segment and the number of transactions with the least amount of transactions.
 
@@ -157,8 +162,11 @@ Profit Percentage = (Profit Cost Price) 100
 #### e). To make it easy for Manis, Clemong, and Steven to read, (e) you are expected to be able to create a script that will produce a file “Hasil.txt” 
 	
 	#(e)
-	echo -e "The last transaction with the largest *Transaction ID* with a percentage of *Profit Percentage*%." > hasil.txt
-	echo -e "The list of customer names in Albuquerque in 2017 includes: \n$list_name\n \n$least_sale\n \n$max_profit\n" >> hasil.txt
+	#this print 2a
+	awk 'BEGIN {max=0;num=0}{if($2>max) max=$2}{if($2==max) num=$1} END {print "The last transaction with the largest Transaction ID is ",num," with a percentage of ",max,"%."}' filter.txt > hasil.txt
+ 	
+ 	#this print
+	echo -e "\nThe list of customer names in Albuquerque in 2017 includes: \n$list_name\n \n$least_sale\n \n$max_profit\n" >> hasil.txt
 	
 #### Result Image (each enter represent the next sub number answer):
 ![](/images/soal2/soal2.png)	
