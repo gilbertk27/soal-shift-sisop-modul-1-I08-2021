@@ -24,25 +24,27 @@
 		(? = \)) to constrain the fetched strings, i.e. up to before the closing brackets)
 		• Sort -u to sort the output
 		• Echo to display each variable content
-	
+##### Problem encountered
+• at first we don't use a REGEX
 #### Result Image:
 ![](/images/soal1/soal1a.png)
 
-	
 #### b). Then, Ryujin must display all error messages that appear along with the number of occurrences.
 	
 	#(b)
 	grep -oE 'ERROR.*' syslog.log
 	echo c_err=$(grep -cE 'ERROR' syslog.log) 
 	
-##### (b) The code above shows how we display data with the ERROR log type and add it up
+##### (b) The code above shows how we display data with the ERROR log type and sum it up
 	o grep -oE 'ERROR. *' syslog.log command which will run first, and will display the message ERROR
 		• Grep command to search for given pattern files
 		• -o option to display only the part that matches the pattern
 		• -E translate patterns as extended regular expressions (EREs)
 		• 'ERROR. *' The asterisk * in ERROR. * Is a quantifier for matching patterns starting from zero onwards
 		• -c counts the number of lines that match the pattern
-
+	o echo c_err=$(grep -cE 'ERROR' syslog.log) command will display the sum of message ERROR
+##### Problem encountered
+1. the output of sum is 0
 #### Result Image:
 ![](/images/soal1/soal1b.png)
 
@@ -56,10 +58,14 @@
 	• Grep command to search for predefined pattern files
 	• -P translates patterns as Perl-compatible regular expressions (PCREs)
 	• -o option to display only the part that matches the pattern
+	• (?<=\()(.*)(?=\)) Using lookbehind. ?<=\() to match the pattern after the opening brackets ( and .* retrieves all strings that follow. 
+		(? = \)) to constrain the fetched strings, i.e. up to before the closing brackets)
 	• Sort to sort the output
 	• Uniq -c to filter usernames so there are no duplicates
 	• Echo to display each variable content
-	
+##### Problem encountered
+1. displays the number of occurrences for each user
+
 After all the necessary information has been prepared, now is the time for Ryujin to write all the information into a report in the csv file format.
 
 #### d). All information obtained in point b is written into the error_message.csv file with the Error, Count header, which is then followed by a list of error messages and the number of occurrences is ordered based on the number of occurrence of error messages from the most.
@@ -74,26 +80,30 @@ Failed to connect to DB,2
 	echo 'Error,Count' > error_message.csv
 	echo "$count_err" | while read row;
 	do
-	error=$(echo $row | cut -d ' ' -f 2-)
-	count=$(echo $row | cut -d ' ' -f 1)
+	error=$(echo $row | cut -d ' ' -f 2-) to cut 2 coloumn
+	count=$(echo $row | cut -d ' ' -f 1) to cut 1 coloumn 
 	print="$error,$count"
 	echo $print >> error_message.csv
 	done
+	
 ##### (d) The code above shows the ERROR log type information and is written in the form error_message.csv file
+
 	• The cat command is used to read the syslog.log file
 	• Grep command to search for given pattern files
 	• -P translates patterns as Perl-compatible regular expressions (PCREs)
 	• -o option to display only the part that matches the pattern
-	• (? <= ERROR \ s) (. *) (? = \ S)
+	• (? <= ERROR \ s) (. *) (? = \ S) Using lookbehind. ?<=\() to match the pattern after the opening brackets ( and .* retrieves all strings that follow. 
+		(? = \)) to constrain the fetched strings, i.e. up to before the closing brackets)
 	• Sort to sort the output
 	• Uniq -c to filter usernames so there are no duplicates
 	• echo 'Error, Count'> error_message.csv to enter the requested data into a file named error_message.csv
 	• while read row reads $ count_err as row
-	• error = $ (echo $ row | cut -d '' -f 2-) for
-	• Count = $ (echo $ row | cut -d '' -f 1) for
+	• error = $ (echo $ row | cut -d '' -f 2-) 
+	• Count = $ (echo $ row | cut -d '' -f 1)
 	• print to display each variable content
 	• echo $ print >> error_message.csv to display each variable content into the error_message.csv file
-
+##### Problem encountered
+1. there are double data occurs in the file 
 #### Result Image:
 ![](/images/soal1/soal1d.png)
 
@@ -121,7 +131,8 @@ ryujin.1203,1,3
 	• grep INFO command to find file info
 	• -c counts the number of lines that match the pattern
 	• Echo "$ i, $ info_c, $ err_c" >> user_statistic.csv to display each variable content into the user_statistic.csv file
-	
+##### Problem encountered
+1. the sum of the type log (INFO\ERROR)
 #### Result Image (For 1c & 1e):
 ![](/images/soal1/soal1e.png)	
 	
