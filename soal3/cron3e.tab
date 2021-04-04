@@ -1,5 +1,5 @@
 #zip
-0 7 * * 1-5 /home/xyncz/Desktop/soal3d.sh
+0 7 * * 1-5 bash /home/xyncz/Desktop/soal3d.sh
 
 #unzip
 0 18 * * 1-5 passw=$(date +'%m%d%Y'); unzip -P "$passw" Koleksi.zip; rm Koleksi.zip

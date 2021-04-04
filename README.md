@@ -175,6 +175,7 @@ Profit Percentage = (Profit Cost Price) 100
 #### b). Because Kuuhaku is too lazy to run the script manually, he also asks you to run the script once a day at 8 o'clock in the evening for some specific dates every month, namely starting the 1st every seven days (1,8, ...), as well as from the 2nd once every four days (2,6, ...). To tidy it up, the downloaded images and logs are moved to a folder named the download date with the format "DD-MM-YYYY" (example: "13-03-2023").
 	
 	#3b
+	0 20 1-31/7,2-31/4 * * bash /home/Downloads/soal3/soal3b.sh
 
 #### c). To prevent Kuuhaku getting bored with pictures of kittens, he also asked you to download rabbit images from "https://loremflickr.com/320/240/bunny". Kuuhaku asks you to download pictures of cats and rabbits alternately (the first one is free. example: 30th cat > 31st rabbit > 1st cat > ...). To distinguish between folders containing cat pictures and rabbit pictures, the folder names are prefixed with "Kucing_" or "Kelinci_" (example: "Kucing_13-03-2023").
 
@@ -189,4 +190,9 @@ Profit Percentage = (Profit Cost Price) 100
 #### e). Because kuuhaku only met Steven during college, which is every day except Saturday and Sunday, from 7 am to 6 pm, he asks you to zip the collection during college, apart from the time mentioned, he wants the collection unzipped. and no other zip files exist.
 
 	#3e
+	#zip
+	0 7 * * 1-5 bash /home/xyncz/Desktop/soal3d.sh
+
+	#unzip
+	0 18 * * 1-5 passw=$(date +'%m%d%Y'); unzip -P "$passw" Koleksi.zip; rm Koleksi.zip
 	
