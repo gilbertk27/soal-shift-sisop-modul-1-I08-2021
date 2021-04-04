@@ -216,21 +216,35 @@ ryujin.1203,1,3
 #### a). Make a script to download 23 images from "https://loremflickr.com/320/240/kitten" and save the logs to the file "Foto.log". Since the downloaded images are random, it is possible that the same image is downloaded more than once, therefore you have to delete the same image (no need to download new images to replace them). Then save the images with the name "Kumpulan_XX" with consecutive numbers without missing any number (example: Koleksi_01, Koleksi_02, ...)
 	
 	#3a
+	dirloc=/home/xyncz/Downloads/soal3
+
+	for ((a=1; a<=23; a=+1))
+    	do
+    		if [ $a -lt 10 ]
+    		then 
+        		wget -a "$dirloc"/Foto.log "https://loremflickr.com/320/240/kitten" -O "$dirloc"/Koleksi_0"$a".jpg
+   		else 
+    			wget -a "$dirloc"/Foto.log "https://loremflickr.com/320/240/kitten" -O "$dirloc"/Koleksi_"$a".jpg
+    		fi
+	done
+	
+#### Result Image 
+![](/images/soal3/soal3a.png)	
 	
 #### b). Because Kuuhaku is too lazy to run the script manually, he also asks you to run the script once a day at 8 o'clock in the evening for some specific dates every month, namely starting the 1st every seven days (1,8, ...), as well as from the 2nd once every four days (2,6, ...). To tidy it up, the downloaded images and logs are moved to a folder named the download date with the format "DD-MM-YYYY" (example: "13-03-2023").
 	
 	#3b
 	0 20 1-31/7,2-31/4 * * bash /home/Downloads/soal3/soal3b.sh
 
-#### c). To prevent Kuuhaku getting bored with pictures of kittens, he also asked you to download rabbit images from "https://loremflickr.com/320/240/bunny". Kuuhaku asks you to download pictures of cats and rabbits alternately (the first one is free. example: 30th cat > 31st rabbit > 1st cat > ...). To distinguish between folders containing cat pictures and rabbit pictures, the folder names are prefixed with "Kucing_" or "Kelinci_" (example: "Kucing_13-03-2023").
-
-	#3c
 	
 #### d). To secure his Photo collection from Steven, Kuuhaku asked you to create a script that will move the entire folder to zip which is named "Koleksi.zip" and lock the zip with a password in the form of the current date with the format "MMDDYYYY" (example: "03032003").
 
 	#3d
 	passw=`date +'%m%d%Y'`
-	zip -P $passw '/home/xyncz/Downloads/Koleksi.zip' . -x *.sh* *.log* *.tab*
+	zip -P $passw '/home/xyncz/Downloads/Koleksi.zip' . -x *.sh* -x *.log* -x *.tab*
+
+#### Result Image
+![](/images/soal3/soal3d.png)	
 	
 #### e). Because kuuhaku only met Steven during college, which is every day except Saturday and Sunday, from 7 am to 6 pm, he asks you to zip the collection during college, apart from the time mentioned, he wants the collection unzipped. and no other zip files exist.
 
@@ -240,4 +254,9 @@ ryujin.1203,1,3
 
 	#unzip
 	0 18 * * 1-5 passw=$(date +'%m%d%Y'); unzip -P "$passw" Koleksi.zip; rm Koleksi.zip
+	
+##### Problem encountered when doing number 2:
+1.The lack of knowledge of various function that then take time to learn during the progress
+2.Can't find the solution why the cron won't run
+3.for 3a, can't find the logic to compare & delet the duplicate automatically
 	
