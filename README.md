@@ -205,9 +205,9 @@ ryujin.1203,1,3
 ![](/images/soal2/soal2.png)	
 	
 ##### Problem encountered when doing number 2:
-1.initially didn't think of using variable to store the result 
-2.having hard time to calculate the 2a because of there's 0 multiplication that resulting in error
-3.The lack of knowledge of various function that then take time to learn during the progress
+	1.initially didn't think of using variable to store the result 
+	2.having hard time to calculate the 2a because of there's 0 multiplication that resulting in error
+	3.The lack of knowledge of various function that then take time to learn during the progress
 
 ## Question 3:
 
@@ -256,7 +256,7 @@ ryujin.1203,1,3
 	0 18 * * 1-5 passw=$(date +'%m%d%Y'); unzip -P "$passw" Koleksi.zip; rm Koleksi.zip
 	
 ##### Problem encountered when doing number 2:
-1.The lack of knowledge of various function that then take time to learn during the progress
-2.Can't find the solution why the cron won't run
-3.for 3a, can't find the logic to compare & delet the duplicate automatically
+	1.The lack of knowledge of various function that then take time to learn during the progress
+	2.Can't find the solution why the cron won't run
+	3.for 3a, can't find the logic to compare & delet the duplicate automatically
 	
